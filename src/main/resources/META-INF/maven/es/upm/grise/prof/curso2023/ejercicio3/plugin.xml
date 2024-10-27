@@ -1,0 +1,17 @@
+<plugin>
+    <name>Prof Curso 2023 Ejercicio 3 Plugin</name>
+    <description>Plugin para detectar malos olores en pruebas de código.</description>
+    <groupId>es.upm.grise</groupId>
+    <artifactId>prof.curso2023.ejercicio3</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <goalPrefix>detect-test-smells</goalPrefix>
+
+    <mojos>
+        <mojo>
+            <goal>detect-test-smells</goal>
+            <implementation>es.upm.grise.prof.curso2023.ejercicio3.DetectTestSmellsMojo</implementation>
+            <description>Detectar malos olores en pruebas de código.</description>
+            <phase>validate</phase>
+        </mojo>
+    </mojos>
+</plugin>
