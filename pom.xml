@@ -12,6 +12,13 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
@@ -27,6 +34,12 @@
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.10.0</version>
 			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+	    	<groupId>com.github.chainiDV</groupId>
+	    	<artifactId>TestSmellDetector</artifactId>
+	    	<version>-SNAPSHOT</version>
 		</dependency>
 
 	</dependencies>
@@ -50,6 +63,20 @@
 				<version>2.22.0</version>
 			</plugin>
 
+			<plugin>
+	            <groupId>edu.rit.se.testsmells</groupId>
+	            <artifactId>test-smell-detector-maven-plugin</artifactId>
+	            <version>0.1</version>
+	            <executions>
+	                <execution>
+	                    <id>run-smell-detector</id>
+	                    <goals>
+	                        <goal>test-smelllist</goal>
+	                    </goals>
+	                    <phase>test</phase>
+	                </execution>
+	            </executions>
+	        </plugin>
 		</plugins>
 	</build>
 
