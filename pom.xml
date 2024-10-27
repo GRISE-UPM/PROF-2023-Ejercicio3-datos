@@ -13,6 +13,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
@@ -28,6 +42,12 @@
 			<version>5.10.0</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- repo -->
+		<dependency>
+			<groupId>com.github.carloslopllo</groupId>
+			<artifactId>pluginTestSmell</artifactId>
+			<version>1.0</version>
+		</dependency>
 
 	</dependencies>
 
@@ -42,7 +62,7 @@
 					<release>11</release>
 				</configuration>
 			</plugin>
-			
+
 			<!-- https://dzone.com/articles/why-your-junit-5-tests-are-not-running-under-maven -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -50,7 +70,31 @@
 				<version>2.22.0</version>
 			</plugin>
 
+			<plugin>
+				<groupId>com.github.carloslopllo</groupId>
+				<artifactId>pluginTestSmell</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>pluginTestSmell</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainPaths>
+						<mainPath>/home/vboxuser/PROF-2023-Ejercicio3-datos/src/main/java/es/upm/grise/prof/curso2023/ejercicio3/SUT.java</mainPath>
+					</mainPaths>
+					<testPaths>
+						<testPath>/home/vboxuser/PROF-2023-Ejercicio3-datos/src/test/java/es/upm/grise/prof/curso2023/ejercicio3/SUTTest.java</testPath>
+					</testPaths>
+					<projectName>proyecto-prueba</projectName>
+					<csvName>resultados.csv</csvName>
+					<csvDirectory>/home/vboxuser/Desktop/</csvDirectory>
+					<jarPath>/home/vboxuser/Desktop/TestSmellDetector.jar</jarPath>
+					<exitPath>/home/vboxuser/Desktop/</exitPath>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
-
 </project>
