@@ -13,6 +13,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
@@ -28,6 +35,11 @@
 			<version>5.10.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.github.pacots</groupId>
+			<artifactId>detector-test-smells-maven-plugin</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 	</dependencies>
 
@@ -42,7 +54,19 @@
 					<release>11</release>
 				</configuration>
 			</plugin>
-			
+			<plugin>
+                <groupId>com.github.pacots</groupId>
+                <artifactId>detector-test-smells-maven-plugin</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                    <phase>test</phase>
+                        <goals>
+                            <goal>tsDetect</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 			<!-- https://dzone.com/articles/why-your-junit-5-tests-are-not-running-under-maven -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
