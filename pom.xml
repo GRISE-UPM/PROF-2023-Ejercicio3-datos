@@ -13,6 +13,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
@@ -29,6 +36,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- TsDetect-Maven-Plugin dependency -->
+		
+        <dependency>
+			<groupId>com.github.ItsNekoRx28</groupId>
+			<artifactId>TsDetect-Maven-Plugin</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -50,7 +64,26 @@
 				<version>2.22.0</version>
 			</plugin>
 
+			<plugin>
+    	        <groupId>com.github.ItsNekoRx28</groupId>
+        	    <artifactId>tsdetect-maven-plugin</artifactId>
+            	<version>1.0-SNAPSHOT</version>
+            	<executions>
+                	<execution>
+					<phase>test</phase>
+						<goals>
+							<goal>tsdetect</goal>
+						</goals>
+						<configuration>
+							<projectName>PROF-2023-Ejercicio3-datos</projectName>
+							<testPath>${project.basedir}/src/test/java/es/upm/grise/prof/curso2023/ejercicio3</testPath>
+							<srcPath>${project.basedir}/src/main/java/es/upm/grise/prof/curso2023/ejercicio3</srcPath>
+							<tsdetectPath>${project.basedir}/lib/TestSmellDetector.jar</tsdetectPath>
+						</configuration>
+            	    </execution>
+            	</executions>
+       		</plugin>
+
 		</plugins>
 	</build>
-
 </project>
